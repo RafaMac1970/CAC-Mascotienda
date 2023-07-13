@@ -1,6 +1,6 @@
 const ul = document.getElementById('productos');
-const urlProductos = 'http://rafamacdonough.pythonanywhere.com/productos';
-const urlTags = 'http://rafamacdonough.pythonanywhere.com/tags';
+const urlProductos = 'https://rafamacdonough.pythonanywhere.com/productos';
+const urlTags = 'https://rafamacdonough.pythonanywhere.com/tags';
 let productos = [];
 let tags = [];
 // let unArray = [];
