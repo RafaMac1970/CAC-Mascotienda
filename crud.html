@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <title>Mascotienda</title>
+</head>
+<body>
+  <header></header>
+
+  <main>
+    <section class="crud">
+   <div id="app">
+            <h1>Productos</h1>
+            <br>
+            <a href="crud_nuevo.html">Nuevo</a>
+            <br><br>
+            <div v-if="error">
+                <p>Lo sentimos , ........</p>
+            </div>
+            <div v-else>
+                <section v-if="cargando">
+                   <p>Cargando .....</p>
+                </section>
+                <section v-else>
+                    <div>
+                        <table border="1">
+                            <thead>
+                                <tr>
+                                    <th>Id</th>
+                                    <th scope="col">Nombre</th>
+                                    <th scope="col">Descripción</th>
+                                    <th scope="col">Foto</th>
+                                    <th scope="col">Precio</th>
+                                    <th scope="col">Tags</th>                                    
+                                    <th scope="col">Acciones</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr v-for="producto in productos">
+                                    <td scope="row">{{producto.id}}</td>
+                                    <td>{{producto.nombre}}</td>
+                                    <td>{{producto.descripcion}}</td>
+                                    <td>
+                                        <img width="60"  :src="producto.foto" :alt="producto.nombre">
+                                    </td>                                    
+                                    <td>{{producto.precio}}</td>
+                                    <td>
+                                    	<template v-for="cadaTag in tags">
+                                    		<div v-if="cadaTag.id_Producto == producto.id">
+                                    			<p>{{cadaTag.tag}}</p>
+                                    			<button type="button" v-on:click="eliminarTag(cadaTag.id)" >Eliminar</button>
+                                    		</div>                                    		
+                                    	</template>
+                                    	<form>
+                                    		<input type="text" name="unTag" id="unTag" v-model="unTag">
+                                    		<button type="button" v-on:click="grabarTag(producto.id)">Grabar</button>
+                                    	</form>
+                                    	
+                                   </td>
+                                    
+                                    <td>                           
+                    							<a  :href="'crud_editar.html?id='+ producto.id" >Editar</a>  
+                                    	<button type="button" v-on:click="eliminar(producto.id)" >Eliminar</button>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+            </div>
+        </div>
+    </section>
+
+  </main>
+  <footer></footer>
+  <script src="js/encabezadoYPieCrud.js"></script>
+      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Link de VUE-->
+    <script src="js/crud2.js"></script>
+</body>
+</html>

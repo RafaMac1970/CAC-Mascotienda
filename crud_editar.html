@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="img/favicon.png">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+
+    <title>Mascotienda</title>
+</head>
+<body>
+  <header></header>
+
+  <main>
+    <h2>CRUD</h2>
+    <section class="crud">
+   <div class="container" id="app">
+      <form style="background-color: aliceblue;margin:10px auto ; width: 400px; padding: 20px;">
+      <div class="mb-3">
+        <label for="id">Id</label>
+        <input type="number" name="id" id="id" disabled v-model="id" >
+      </div>
+      <div class="mb-3">
+        <label for="nombre">Nombre</label>
+        <input type="text" name="nombre" id="nombre" v-model="nombre">
+      </div>
+      <div class="mb-3">
+        <label for="descripcion">Descripción</label>
+        <input type="text" name="descripcion" id="descripcion" v-model="descripcion">
+      </div>
+      <div class="mb-3">
+        <label for="foto">Foto</label>
+        <input type="text" name="foto" id="foto" v-model="foto">  
+        <img width="100"   :src="foto" alt="">
+      </div>
+      <div class="mb-3">
+        <label for="precio">Precio</label>
+        <input type="number" name="precio" id="precio" v-model="precio">
+      </div>      
+      
+      <button type="button" class="btn btn-success" v-on:click="modificar()">Grabar</button>
+      </form>
+    </div>
+    </section>
+
+  </main>
+  <footer></footer>
+  <script src="js/encabezadoYPieCrud.js"></script>
+      <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script><!--Link de VUE-->
+    <script src="./js/crud_editar.js"></script>
+</body>
+</html>
